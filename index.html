@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Sawankar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: #fbbf24;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(odd) {
+            animation-delay: -2s;
+        }
+        
+        .particle:nth-child(even) {
+            animation-delay: -4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .flowing-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            animation: flowRight 4s linear infinite;
+        }
+        
+        @keyframes flowRight {
+            0% { left: -100%; width: 100px; }
+            50% { width: 200px; }
+            100% { left: 100%; width: 100px; }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+        }
+        
+        .skill-bar {
+            background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+            height: 8px;
+            border-radius: 4px;
+            animation: skillLoad 2s ease-out;
+        }
+        
+        @keyframes skillLoad {
+            0% { width: 0%; }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fbbf24;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #fbbf24;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: #fbbf24; }
+            51%, 100% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-sm z-50 border-b border-yellow-400/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-yellow-400">SS</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-yellow-400">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-yellow-400">About</a>
+                    <a href="#projects" class="nav-link text-white hover:text-yellow-400">Projects</a>
+                    <a href="#skills" class="nav-link text-white hover:text-yellow-400">Skills</a>
+                    <a href="#contact" class="nav-link text-white hover:text-yellow-400">Contact</a>
+                </div>
+                <button class="md:hidden text-yellow-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="grid-pattern absolute inset-0"></div>
+        
+        <!-- Animated Particles -->
+        <div class="particle w-2 h-2" style="top: 20%; left: 10%;"></div>
+        <div class="particle w-3 h-3" style="top: 60%; left: 80%;"></div>
+        <div class="particle w-1 h-1" style="top: 40%; left: 20%;"></div>
+        <div class="particle w-2 h-2" style="top: 80%; left: 60%;"></div>
+        <div class="particle w-1 h-1" style="top: 30%; left: 90%;"></div>
+        
+        <!-- Flowing Lines -->
+        <div class="flowing-line" style="top: 25%; animation-delay: 0s;"></div>
+        <div class="flowing-line" style="top: 50%; animation-delay: 2s;"></div>
+        <div class="flowing-line" style="top: 75%; animation-delay: 1s;"></div>
+        
+        <div class="text-center z-10 max-w-4xl mx-auto px-4">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 glow-text">
+                SUMIT<br>
+                <span class="text-yellow-400">SAWANKAR</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 typing-animation">
+                Frontend Developer & Digital Marketing Specialist
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' })" class="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">
+                    View My Work
+                </button>
+                <button class="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                    Download CV
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <!-- Floating Circles -->
+            <div class="absolute w-32 h-32 bg-yellow-400/10 rounded-full animate-pulse" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+            <div class="absolute w-24 h-24 bg-yellow-400/15 rounded-full animate-pulse" style="top: 70%; right: 10%; animation-delay: 2s;"></div>
+            <div class="absolute w-40 h-40 bg-yellow-400/8 rounded-full animate-pulse" style="top: 40%; right: 20%; animation-delay: 1s;"></div>
+            
+            <!-- Geometric Shapes -->
+            <div class="absolute w-16 h-16 border-2 border-yellow-400/20 rotate-45 animate-spin" style="top: 20%; right: 15%; animation-duration: 20s;"></div>
+            <div class="absolute w-12 h-12 border-2 border-yellow-400/30 rotate-45 animate-spin" style="bottom: 30%; left: 10%; animation-duration: 15s; animation-direction: reverse;"></div>
+            
+            <!-- Flowing Lines -->
+            <div class="absolute h-px bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent w-64 animate-pulse" style="top: 25%; left: 0; animation-delay: 1s;"></div>
+            <div class="absolute h-px bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent w-48 animate-pulse" style="bottom: 40%; right: 0; animation-delay: 3s;"></div>
+            
+            <!-- Dots Pattern -->
+            <div class="absolute grid grid-cols-8 gap-4 opacity-20" style="top: 15%; left: 15%;">
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 0s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 1.5s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 2s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 2.5s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 3s;"></div>
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping" style="animation-delay: 3.5s;"></div>
+            </div>
+            
+            <!-- Moving Gradient Orbs -->
+            <div class="absolute w-20 h-20 bg-gradient-to-br from-yellow-400/20 to-transparent rounded-full blur-xl animate-bounce" style="top: 60%; left: 20%; animation-duration: 4s;"></div>
+            <div class="absolute w-16 h-16 bg-gradient-to-br from-yellow-400/15 to-transparent rounded-full blur-lg animate-bounce" style="top: 30%; right: 30%; animation-duration: 6s; animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">About <span class="text-yellow-400">Me</span></h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-yellow-400">Hello! I'm Sumit</h3>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        I'm a passionate Frontend Developer and Digital Marketing enthusiast with expertise in creating modern, responsive web applications. 
+                        I love turning complex problems into simple, beautiful designs that provide exceptional user experiences.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        With a strong foundation in web technologies, UI/UX design, and digital marketing strategies including SEO, 
+                        I specialize in building scalable applications and creating compelling content that drives engagement.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-yellow-400 font-semibold mb-2">Education</h4>
+                            <p class="text-gray-300">B.Tech Information Technology</p>
+                            <p class="text-sm text-gray-400">NIT Nagpur</p>
+                        </div>
+                        <div>
+                            <h4 class="text-yellow-400 font-semibold mb-2">Experience</h4>
+                            <p class="text-gray-300">6 Months Total Internship</p>
+                            <p class="text-sm text-gray-400">Content Writing & Digital Marketing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-yellow-400 font-semibold mb-4">Work Experience</h4>
+                        <div class="space-y-4">
+                            <div class="bg-black/50 p-4 rounded-lg border border-gray-800">
+                                <h5 class="font-semibold text-white mb-1">Content Writer</h5>
+                                <p class="text-yellow-400 text-sm mb-2">Muskurahat Foundation • 2 Months</p>
+                                <p class="text-gray-300 text-sm">Created engaging content for social causes and community outreach programs.</p>
+                            </div>
+                            <div class="bg-black/50 p-4 rounded-lg border border-gray-800">
+                                <h5 class="font-semibold text-white mb-1">Digital Marketing Intern</h5>
+                                <p class="text-yellow-400 text-sm mb-2">AppVersal • 3 Months</p>
+                                <p class="text-gray-300 text-sm">Implemented SEO strategies and digital marketing campaigns to increase online visibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-80 h-80 mx-auto bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-6xl font-bold text-black">
+                        SS
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-yellow-400 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">My <span class="text-yellow-400">Projects</span></h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-black" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">E-Commerce Website</h3>
+                    <p class="text-gray-300 mb-4">Complete online shopping platform with product catalog, shopping cart, and responsive design built from scratch.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">CSS</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</button>
+                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">GitHub</button>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-black" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Task Management App</h3>
+                    <p class="text-gray-300 mb-4">Full-stack task management system with Python backend and interactive frontend for organizing and tracking tasks efficiently.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">CSS</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</button>
+                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">GitHub</button>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-black" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Social Media Dashboard</h3>
+                    <p class="text-gray-300 mb-4">Comprehensive analytics dashboard with data visualization, user engagement metrics, and Java backend integration.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">CSS</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Java</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</button>
+                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">GitHub</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">My <span class="text-yellow-400">Skills</span></h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-yellow-400">Technical Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">C++ / Java / Python</span>
+                                <span class="text-yellow-400">70%</span>
+                            </div>
+                            <div class="bg-gray-800 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">AWS Cloud Services</span>
+                                <span class="text-yellow-400">75%</span>
+                            </div>
+                            <div class="bg-gray-800 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">UI/UX Design</span>
+                                <span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="bg-gray-800 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Digital Marketing / SEO</span>
+                                <span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="bg-gray-800 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">HTML / CSS / JavaScript</span>
+                                <span class="text-yellow-400">90%</span>
+                            </div>
+                            <div class="bg-gray-800 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Content Writing</span>
+                                <span class="text-yellow-400">90%</span>
+                            </div>
+                            <div class="bg-gray-800 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-yellow-400">Tools & Technologies</h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">💻</div>
+                            <span class="font-semibold">Web Development</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">🎨</div>
+                            <span class="font-semibold">UI/UX Design</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">✍️</div>
+                            <span class="font-semibold">Content Writing</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">📈</div>
+                            <span class="font-semibold">SEO Marketing</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">🐍</div>
+                            <span class="font-semibold">Python</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">☕</div>
+                            <span class="font-semibold">Java</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">☁️</div>
+                            <span class="font-semibold">AWS Cloud</span>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                            <div class="text-2xl mb-2">⚡</div>
+                            <span class="font-semibold">C++</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Get In <span class="text-yellow-400">Touch</span></h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-yellow-400 text-center">Let's Connect</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Email</h4>
+                                <p class="text-gray-300">sumitsawankar8767@gmail.com</p>
+                            </div>
+
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Location</h4>
+                                <p class="text-gray-300">Nagpur, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Phone</h4>
+                                <p class="text-gray-300">+91 8767101084</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <h4 class="font-semibold text-yellow-400 mb-4">Follow Me</h4>
+                        <div class="flex justify-center space-x-4">
+                            <a href="mailto:sumitsawankar8767@gmail.com" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/918767101084" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://in.linkedin.com/in/sumit-sawankar-2104232bb" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/sumitsawankar" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    © 2024 Sumit Sawankar. All rights reserved. Built with passion and modern web technologies.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-yellow-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-yellow-400');
+                }
+            });
+        });
+
+        // Typing animation
+        const typingText = document.querySelector('.typing-animation');
+        const texts = [
+            'Frontend Developer & Digital Marketing Specialist',
+            'UI/UX Designer & Content Writer',
+            'SEO Expert & Web Developer',
+            'Python, Java & C++ Programmer'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+
+        // Start typing animation
+        setTimeout(typeWriter, 1000);
+
+
+
+        // Button click handlers
+        document.querySelector('button:contains("View My Work")') && document.querySelector('button:contains("View My Work")').addEventListener('click', function() {
+            document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Add some interactive particles on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.98) {
+                const particle = document.createElement('div');
+                particle.className = 'fixed w-1 h-1 bg-yellow-400 rounded-full pointer-events-none z-50';
+                particle.style.left = e.clientX + 'px';
+                particle.style.top = e.clientY + 'px';
+                particle.style.animation = 'float 2s ease-out forwards';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96abde66529b4418',t:'MTc1NDQ1NTM1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
