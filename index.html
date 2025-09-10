@@ -170,9 +170,9 @@
                 <button onclick="document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' })" class="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">
                     View My Work
                 </button>
-                <button class="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                <a href="https://drive.google.com/file/d/1nC_Vw9IVZCC2JhmZj17Bx_pfwodAi_vN/view?usp=drive_link" target="_blank" class="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300 inline-block text-center">
                     Download CV
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -293,7 +293,7 @@
                         <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">JavaScript</span>
                     </div>
                     <div class="flex gap-4">
-                        <button class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</button>
+                        <a href="https://masalabox-s.vercel.app/" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</a>
                         <a href="https://github.com/sumitsawankar/MASALABOX" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">GitHub</a>
                     </div>
                 </div>
@@ -330,7 +330,7 @@
                         <span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Java</span>
                     </div>
                     <div class="flex gap-4">
-                        <a href="https://drive.google.com/drive/folders/1OEtg8kr0WBfsFNJT7SLq8wemvHJZvhEs" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</a>
+                        <a href="https://incognitech.vercel.app/" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">Live Demo</a>
                         <button class="text-yellow-400 hover:text-yellow-300 transition-colors">GitHub</button>
                     </div>
                 </div>
@@ -417,35 +417,35 @@
                     <h3 class="text-2xl font-bold mb-8 text-yellow-400">Tools & Technologies</h3>
                     
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('webdev')">
                             <div class="text-2xl mb-2">💻</div>
                             <span class="font-semibold">Web Development</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('uiux')">
                             <div class="text-2xl mb-2">🎨</div>
                             <span class="font-semibold">UI/UX Design</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('content')">
                             <div class="text-2xl mb-2">✍️</div>
                             <span class="font-semibold">Content Writing</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('seo')">
                             <div class="text-2xl mb-2">📈</div>
                             <span class="font-semibold">SEO Marketing</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('python')">
                             <div class="text-2xl mb-2">🐍</div>
                             <span class="font-semibold">Python</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('java')">
                             <div class="text-2xl mb-2">☕</div>
                             <span class="font-semibold">Java</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('aws')">
                             <div class="text-2xl mb-2">☁️</div>
                             <span class="font-semibold">AWS Cloud</span>
                         </div>
-                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors">
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center hover:border-yellow-400 transition-colors cursor-pointer" onclick="openPopup('cpp')">
                             <div class="text-2xl mb-2">⚡</div>
                             <span class="font-semibold">C++</span>
                         </div>
@@ -541,6 +541,23 @@
             </div>
         </div>
     </section>
+
+    <!-- Popup Modal -->
+    <div id="skillPopup" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" style="display: none;">
+        <div class="bg-gray-900 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-yellow-400/30 relative">
+            <button onclick="closePopup()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 transition-colors z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <div class="p-8">
+                <div id="popupContent">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 border-t border-gray-800">
@@ -648,6 +665,139 @@
                 }, 2000);
             }
         });
+
+        // Popup functionality
+        const skillData = {
+            webdev: {
+                title: "Web Development",
+                icon: "💻",
+                description: "Creating modern, responsive websites and web applications using cutting-edge technologies.",
+                skills: ["HTML5 & CSS3", "JavaScript (ES6+)", "Responsive Design", "Cross-browser Compatibility", "Performance Optimization"],
+                experience: "Built multiple projects including e-commerce platforms, task management systems, and student platforms. Experienced in creating pixel-perfect designs that work seamlessly across all devices.",
+                tools: ["VS Code", "Git & GitHub", "Chrome DevTools", "Figma", "Tailwind CSS"]
+            },
+            uiux: {
+                title: "UI/UX Design",
+                icon: "🎨",
+                description: "Designing intuitive and visually appealing user interfaces with focus on user experience.",
+                skills: ["User Interface Design", "User Experience Research", "Wireframing & Prototyping", "Color Theory", "Typography"],
+                experience: "Designed user-friendly interfaces for various projects with emphasis on accessibility and usability. Created design systems that ensure consistency across different platforms.",
+                tools: ["Figma", "Adobe XD", "Sketch", "InVision", "Principle"]
+            },
+            content: {
+                title: "Content Writing",
+                icon: "✍️",
+                description: "Creating engaging, SEO-optimized content that resonates with target audiences.",
+                skills: ["SEO Writing", "Blog Writing", "Social Media Content", "Technical Writing", "Copywriting"],
+                experience: "2 months of professional experience at Muskurahat Foundation creating content for social causes. Specialized in writing compelling content that drives engagement and conversions.",
+                tools: ["Google Docs", "Grammarly", "Hemingway Editor", "Yoast SEO", "Canva"]
+            },
+            seo: {
+                title: "SEO Marketing",
+                icon: "📈",
+                description: "Optimizing websites and content to improve search engine rankings and drive organic traffic.",
+                skills: ["Keyword Research", "On-page SEO", "Technical SEO", "Link Building", "Analytics & Reporting"],
+                experience: "3 months of hands-on experience at AppVersal implementing SEO strategies. Successfully improved website rankings and organic traffic through comprehensive SEO campaigns.",
+                tools: ["Google Analytics", "Google Search Console", "SEMrush", "Ahrefs", "Screaming Frog"]
+            },
+            python: {
+                title: "Python Programming",
+                icon: "🐍",
+                description: "Versatile programming language used for web development, automation, and data analysis.",
+                skills: ["Core Python", "Object-Oriented Programming", "Web Frameworks", "Data Structures", "Algorithm Implementation"],
+                experience: "Developed backend systems and automation scripts. Built task management applications with Python backend integration.",
+                tools: ["PyCharm", "Jupyter Notebook", "Flask/Django", "NumPy", "Pandas"]
+            },
+            java: {
+                title: "Java Programming",
+                icon: "☕",
+                description: "Robust, object-oriented programming language for building scalable applications.",
+                skills: ["Core Java", "Object-Oriented Programming", "Data Structures & Algorithms", "Exception Handling", "Multithreading"],
+                experience: "Strong foundation in Java programming with focus on building efficient algorithms and data structures. Used in academic projects and competitive programming.",
+                tools: ["IntelliJ IDEA", "Eclipse", "NetBeans", "Maven", "JUnit"]
+            },
+            aws: {
+                title: "AWS Cloud Services",
+                icon: "☁️",
+                description: "Cloud computing platform for building and deploying scalable applications.",
+                skills: ["EC2 Instances", "S3 Storage", "Lambda Functions", "CloudFront", "IAM Management"],
+                experience: "Hands-on experience with AWS services for hosting and deploying web applications. Familiar with cloud architecture and best practices.",
+                tools: ["AWS Console", "AWS CLI", "CloudFormation", "CloudWatch", "Elastic Beanstalk"]
+            },
+            cpp: {
+                title: "C++ Programming",
+                icon: "⚡",
+                description: "High-performance programming language for system programming and competitive coding.",
+                skills: ["Core C++", "Data Structures", "Algorithms", "Memory Management", "STL (Standard Template Library)"],
+                experience: "Strong foundation in C++ programming with focus on competitive programming and algorithm implementation. Used for solving complex computational problems.",
+                tools: ["Code::Blocks", "Dev-C++", "Visual Studio", "GDB Debugger", "Valgrind"]
+            }
+        };
+
+        function openPopup(skillKey) {
+            console.log('Opening popup for:', skillKey); // Debug log
+            const skill = skillData[skillKey];
+            if (!skill) {
+                console.error('Skill not found:', skillKey);
+                return;
+            }
+            
+            const popupContent = document.getElementById('popupContent');
+            
+            popupContent.innerHTML = `
+                <div class="text-center mb-6">
+                    <div class="text-6xl mb-4">${skill.icon}</div>
+                    <h3 class="text-3xl font-bold text-yellow-400 mb-2">${skill.title}</h3>
+                    <p class="text-gray-300 text-lg">${skill.description}</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-3">Key Skills</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            ${skill.skills.map(s => `<div class="bg-black/50 px-3 py-2 rounded-lg text-sm border border-gray-800">• ${s}</div>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-3">Experience</h4>
+                        <p class="text-gray-300 leading-relaxed">${skill.experience}</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-3">Tools & Technologies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${skill.tools.map(tool => `<span class="bg-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full text-sm">${tool}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const popup = document.getElementById('skillPopup');
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            console.log('Popup should be visible now'); // Debug log
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('skillPopup');
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('skillPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e224e4e437cb77',t:'MTc1NTAyNDQ3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97cff7a671d27eda',t:'MTc1NzUxODIzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
